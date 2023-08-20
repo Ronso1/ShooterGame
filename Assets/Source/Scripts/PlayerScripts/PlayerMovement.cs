@@ -5,13 +5,14 @@ public class PlayerMovement : MonoBehaviour
     private const string VerticalAxis = "Vertical";
     [SerializeField] private Rigidbody _rigidBody;
     [SerializeField] private Transform _root;
-    [SerializeField] private GameObject _camera;
+    [SerializeField] private GameObject _camera, _weapon;
     [SerializeField] private float _speed, _speedBoost = 1f;
     [SerializeField] private float _gravityScale = 5f;
     public float health = 100f;
     private float _horizontal;
     private float _vertical;
     private bool _isGrounded = true;
+    private bool _weaponHide = true;
     private void OnCollisionEnter() => _isGrounded = true;
     private void Update()
     {        
@@ -22,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
             _isGrounded = false;
             _rigidBody.AddForce((_gravityScale - 1) * _rigidBody.mass * Vector3.up);
         }
+        WeaponActiveStatus();
     }
     private void FixedUpdate()
     {
@@ -30,5 +32,14 @@ public class PlayerMovement : MonoBehaviour
             _rigidBody.MovePosition(_rigidBody.transform.position + moveDirection * (_speed + _speedBoost) * Time.fixedDeltaTime);
         else
             _rigidBody.MovePosition(_rigidBody.transform.position + moveDirection * _speed * Time.fixedDeltaTime);
+    }
+
+    private void WeaponActiveStatus()
+    {
+        if (Input.GetKeyDown(KeyCode.H))
+        {
+            _weaponHide = !_weaponHide;
+            _weapon.SetActive(_weaponHide);
+        }
     }
 }
