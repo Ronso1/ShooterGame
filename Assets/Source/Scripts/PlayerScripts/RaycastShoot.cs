@@ -1,7 +1,9 @@
 using UnityEngine;
+using TMPro;
 public class RaycastShoot : MonoBehaviour
 {
     [SerializeField] private Camera _playerCamera;
+    [SerializeField] private TMP_Text _healthEnemyTopPrint;
     private int enemyHealth;
     private void Update()
     {    
@@ -16,6 +18,9 @@ public class RaycastShoot : MonoBehaviour
             {
                 hitInfo.collider.gameObject.GetComponent<EnemyAI>().HealthEnemy -= 20;
                 enemyHealth = hitInfo.collider.gameObject.GetComponent<EnemyAI>().HealthEnemy;
+                _healthEnemyTopPrint.gameObject.SetActive(true);
+                _healthEnemyTopPrint.text = $"Enemy health: {enemyHealth}";
+                if (enemyHealth == 0) _healthEnemyTopPrint.gameObject.SetActive(false);
                 print($"Health enemy: {enemyHealth}");
             }
         }

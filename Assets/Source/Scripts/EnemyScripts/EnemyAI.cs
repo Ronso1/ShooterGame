@@ -7,7 +7,7 @@ public class EnemyAI : MonoBehaviour
     public int HealthEnemy = 100;
     private void Start()
     {
-        //_enemy = GetComponent<NavMeshAgent>();
+        _enemy = GetComponent<NavMeshAgent>();
         _player = GameObject.FindGameObjectWithTag("Player");
     }
     private void Update()
@@ -17,6 +17,6 @@ public class EnemyAI : MonoBehaviour
             Destroy(gameObject);
             return;
         }
-       //_enemy.SetDestination(_player.transform.position);
+       _enemy.SetDestination(_player.transform.position);
     }
 }
