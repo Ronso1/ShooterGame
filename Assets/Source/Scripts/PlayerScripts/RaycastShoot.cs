@@ -4,6 +4,7 @@ public class RaycastShoot : MonoBehaviour
 {
     [SerializeField] private Camera _playerCamera;
     [SerializeField] private TMP_Text _healthEnemyTopPrint;
+    [SerializeField] private int _damage = 20;
     private int enemyHealth;
     private void Update()
     {    
@@ -16,7 +17,7 @@ public class RaycastShoot : MonoBehaviour
         {
             if (hitInfo.collider.tag == "Enemy")
             {
-                hitInfo.collider.gameObject.GetComponent<EnemyAI>().HealthEnemy -= 20;
+                hitInfo.collider.gameObject.GetComponent<EnemyAI>().HealthEnemy -= _damage;
                 enemyHealth = hitInfo.collider.gameObject.GetComponent<EnemyAI>().HealthEnemy;
                 _healthEnemyTopPrint.gameObject.SetActive(true);
                 _healthEnemyTopPrint.text = $"Enemy health: {enemyHealth}";
