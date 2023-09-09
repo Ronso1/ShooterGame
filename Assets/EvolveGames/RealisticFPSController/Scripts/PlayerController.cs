@@ -1,6 +1,4 @@
-﻿//by EvolveGames
-using System.Collections;
-using System.Collections.Generic;
+﻿using TMPro;
 using UnityEngine;
 
 namespace EvolveGames
@@ -43,6 +41,10 @@ namespace EvolveGames
         [Header("Input")]
         [SerializeField] KeyCode CroughKey = KeyCode.LeftControl;
 
+        [Space(20)]
+        [Header("My improvments")]
+        [SerializeField] private TMP_Text _enemyHealthInfo;
+
 
         [HideInInspector] public CharacterController characterController;
         [HideInInspector] public Vector3 moveDirection = Vector3.zero;
@@ -62,6 +64,12 @@ namespace EvolveGames
         float installGravity;
         bool WallDistance;
         [HideInInspector] public float WalkingValue;
+
+        private void Awake()
+        {
+            _enemyHealthInfo.gameObject.SetActive(false);
+        }
+
         void Start()
         {
             characterController = GetComponent<CharacterController>();

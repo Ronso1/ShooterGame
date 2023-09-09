@@ -6,10 +6,12 @@ public class RaycastShoot : MonoBehaviour
     [SerializeField] private TMP_Text _healthEnemyTopPrint;
     [SerializeField] private int _damage = 20;
     private int enemyHealth;
+
     private void Update()
     {    
         if (Input.GetKeyDown(KeyCode.Mouse0)) ShootByRayCast();
     }
+
     private void ShootByRayCast()
     {
         Ray ray = _playerCamera.ScreenPointToRay(Input.mousePosition);
