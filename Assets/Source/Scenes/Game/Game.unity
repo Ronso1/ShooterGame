@@ -13984,7 +13984,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c586dd9ba628f3f40a3562b03df923d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemyPrefab: {fileID: 8705863780793355527, guid: 6be4e589a3f7cde428f68eedf0119f88,
+  _enemyPrefab: {fileID: 837565098076804134, guid: dc6ee4aad2df03e458b13ff50e85f92e,
     type: 3}
   _maxEnemy: 5
   _timeSpawn: 2
@@ -27753,7 +27753,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c586dd9ba628f3f40a3562b03df923d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemyPrefab: {fileID: 8705863780793355527, guid: 6be4e589a3f7cde428f68eedf0119f88,
+  _enemyPrefab: {fileID: 837565098076804134, guid: dc6ee4aad2df03e458b13ff50e85f92e,
     type: 3}
   _maxEnemy: 5
   _timeSpawn: 2
@@ -27802,7 +27802,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c586dd9ba628f3f40a3562b03df923d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemyPrefab: {fileID: 8705863780793355527, guid: 6be4e589a3f7cde428f68eedf0119f88,
+  _enemyPrefab: {fileID: 837565098076804134, guid: dc6ee4aad2df03e458b13ff50e85f92e,
     type: 3}
   _maxEnemy: 5
   _timeSpawn: 2

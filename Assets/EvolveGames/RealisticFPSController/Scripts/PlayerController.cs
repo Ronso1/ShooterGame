@@ -1,6 +1,5 @@
 ﻿using TMPro;
 using UnityEngine;
-
 namespace EvolveGames
 {
     [RequireComponent(typeof(CharacterController))]
