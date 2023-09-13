@@ -4,8 +4,8 @@ using UnityEngine;
 using UnityEngine.AI;
 public class EnemyAI : MonoBehaviour
 {
-    [SerializeField] private GameObject _player;
     [SerializeField] private NavMeshAgent _enemy;
+    private GameObject _player;
     public int HealthEnemy = 100;
     private void Start() => _player = FindObjectOfType<PlayerController>().gameObject;
     private void Update()
