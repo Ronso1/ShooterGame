@@ -1,10 +1,13 @@
 using UnityEngine;
 using TMPro;
+using Unity.VisualScripting.Dependencies.Sqlite;
+
 public class RaycastShoot_Pistol : MonoBehaviour
 {
     [SerializeField] private Camera _playerCamera;
     [SerializeField] private TMP_Text _healthEnemyTopPrint;
     [SerializeField] private int _damage = 15;
+    [SerializeField] private LayerMask _layerMask;
     private int enemyHealth;
 
     private void Update()
@@ -15,7 +18,7 @@ public class RaycastShoot_Pistol : MonoBehaviour
     private void ShootByRayCast()
     {
         Ray ray = _playerCamera.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(ray, out RaycastHit hitInfo, Mathf.Infinity))
+        if (Physics.Raycast(ray, out RaycastHit hitInfo, Mathf.Infinity, _layerMask))
         {
             if (hitInfo.collider.tag == "Enemy")
             {

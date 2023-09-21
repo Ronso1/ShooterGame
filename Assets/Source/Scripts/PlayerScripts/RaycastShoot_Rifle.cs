@@ -7,20 +7,21 @@ public class RaycastShoot_Rifle : MonoBehaviour
     [SerializeField] private Camera _playerCamera;
     [SerializeField] private TMP_Text _healthEnemyTopPrint;
     [SerializeField] private int _damage = 25;
+    [SerializeField] private LayerMask _layerMask;
     private int _enemyHealth;
     private bool _isShoot = true;
 
     private void Update()
     {
-        if (Input.GetKey(KeyCode.Mouse0) && _isShoot) ShootByRayCastRifle();
+        if (Input.GetKey(KeyCode.Mouse0) && _isShoot) StartCoroutine(ShootByRayCastRifle());
     }
 
     private IEnumerator ShootByRayCastRifle()
     {
         _isShoot = false;
-        var timeForWait = new WaitForSeconds(0.5f);
+        var timeForWait = new WaitForSeconds(0.1f);
         Ray ray = _playerCamera.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(ray, out RaycastHit hitInfo, Mathf.Infinity))
+        if (Physics.Raycast(ray, out RaycastHit hitInfo, Mathf.Infinity, _layerMask))
         {
             if (hitInfo.collider.tag == "Enemy")
             {

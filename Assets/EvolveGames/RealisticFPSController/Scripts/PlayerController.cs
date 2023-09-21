@@ -187,7 +187,7 @@ namespace EvolveGames
         private void OnDrawGizmosSelected()
         {
             var ray = new Ray(transform.position, transform.forward);
-            Debug.DrawRay(ray.origin, ray.direction * 15f, Gizmos.color = Color.green);
+            Debug.DrawRay(ray.origin, ray.direction * 30f, Gizmos.color = Color.green);
         }
 #endif
 
