@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1351902542}
   - component: {fileID: 1351902545}
   - component: {fileID: 1351902543}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Support Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -119,7 +119,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4434987454460907420}
   - component: {fileID: 4434987454460907421}
-  m_Layer: 6
+  m_Layer: 2
   m_Name: HandSmooth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -176,7 +176,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4434987455181619954}
   - component: {fileID: 4434987455181619956}
-  m_Layer: 6
+  m_Layer: 2
   m_Name: Hand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -230,7 +230,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4434987455585117539}
   - component: {fileID: 4434987455585117540}
-  m_Layer: 6
+  m_Layer: 2
   m_Name: HandsHolder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -285,7 +285,7 @@ GameObject:
   - component: {fileID: 4582019822591254234}
   - component: {fileID: 4582019822591254232}
   - component: {fileID: -1890339323171327367}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -422,7 +422,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4582019822763175518}
   - component: {fileID: 4582019822763175517}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: MovementFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -471,7 +471,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4582019823802981677}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: CameraHolder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -507,7 +507,8 @@ GameObject:
   - component: {fileID: 4582019824381016672}
   - component: {fileID: 4434987455403460021}
   - component: {fileID: 4434987454404763374}
-  m_Layer: 0
+  - component: {fileID: 1798049557}
+  m_Layer: 2
   m_Name: PlayerController
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -624,10 +625,31 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.47404212
+  m_Radius: 0.33096442
   m_Height: 2.1625967
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: -0.1430777, y: 0, z: 0}
+--- !u!114 &1798049557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4582019824381016673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a164d432cee14c49b1036c7cf66fe73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerCamera: {fileID: 1351902545}
+  _healthEnemyTopPrint: {fileID: 0}
+  _damage: 15
+  _layerMask:
+    serializedVersion: 2
+    m_Bits: 123
+  _weaponsList:
+  - {fileID: 3345810153996598779}
+  - {fileID: 8238960141054570794}
 --- !u!1001 &270984800
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -639,7 +661,7 @@ PrefabInstance:
     - target: {fileID: 7081268214758016618, guid: ba2290b7b04152246974a1f5283129d0,
         type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8238960141321246538, guid: ba2290b7b04152246974a1f5283129d0,
         type: 3}
@@ -649,7 +671,7 @@ PrefabInstance:
     - target: {fileID: 8238960141321246538, guid: ba2290b7b04152246974a1f5283129d0,
         type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8238960141321246538, guid: ba2290b7b04152246974a1f5283129d0,
         type: 3}
@@ -659,7 +681,7 @@ PrefabInstance:
     - target: {fileID: 8438515096380053631, guid: ba2290b7b04152246974a1f5283129d0,
         type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8727266017287228912, guid: ba2290b7b04152246974a1f5283129d0,
         type: 3}
@@ -725,21 +747,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 270984800}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1071524513
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8238960141054570794}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e9297bc1c8e1fe4a9b56af400d9627a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _playerCamera: {fileID: 1351902545}
-  _healthEnemyTopPrint: {fileID: 0}
-  _damage: 25
 --- !u!4 &8727266017553197968 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8727266017287228912, guid: ba2290b7b04152246974a1f5283129d0,
@@ -757,7 +764,7 @@ PrefabInstance:
     - target: {fileID: 1272869419934052488, guid: 47fdbc4cf72616d4e86caae65ab546aa,
         type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2676655742042736287, guid: 47fdbc4cf72616d4e86caae65ab546aa,
         type: 3}
@@ -782,17 +789,17 @@ PrefabInstance:
     - target: {fileID: 2676655742042736287, guid: 47fdbc4cf72616d4e86caae65ab546aa,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.02
-      objectReference: {fileID: 0}
-    - target: {fileID: 2676655742042736287, guid: 47fdbc4cf72616d4e86caae65ab546aa,
-        type: 3}
-      propertyPath: m_LocalPosition.y
       value: -0.05
       objectReference: {fileID: 0}
     - target: {fileID: 2676655742042736287, guid: 47fdbc4cf72616d4e86caae65ab546aa,
         type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 2676655742042736287, guid: 47fdbc4cf72616d4e86caae65ab546aa,
+        type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.28
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 2676655742042736287, guid: 47fdbc4cf72616d4e86caae65ab546aa,
         type: 3}
@@ -837,7 +844,7 @@ PrefabInstance:
     - target: {fileID: 3345810154632764453, guid: 47fdbc4cf72616d4e86caae65ab546aa,
         type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3345810154632764453, guid: 47fdbc4cf72616d4e86caae65ab546aa,
         type: 3}
@@ -847,7 +854,7 @@ PrefabInstance:
     - target: {fileID: 6224897754999038097, guid: 47fdbc4cf72616d4e86caae65ab546aa,
         type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
@@ -864,18 +871,3 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1780179422}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1796312185
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3345810153996598779}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42d1e455ab001c34bb86fe76c14806ee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _playerCamera: {fileID: 1351902545}
-  _healthEnemyTopPrint: {fileID: 0}
-  _damage: 25

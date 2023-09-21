@@ -18912,6 +18912,12 @@ Transform:
   m_Father: {fileID: 797821364}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!20 &601531190 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 1351902545, guid: a01c7516e659bdf4b9897ab54df69b69,
+    type: 3}
+  m_PrefabInstance: {fileID: 17493416}
+  m_PrefabAsset: {fileID: 0}
 --- !u!43 &602714005
 Mesh:
   m_ObjectHideFlags: 0
@@ -28931,6 +28937,12 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &1427912640 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3345810153996598779, guid: a01c7516e659bdf4b9897ab54df69b69,
+    type: 3}
+  m_PrefabInstance: {fileID: 17493416}
+  m_PrefabAsset: {fileID: 0}
 --- !u!43 &1501178923
 Mesh:
   m_ObjectHideFlags: 0
@@ -30433,6 +30445,33 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &1798049551 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4582019824381016673, guid: a01c7516e659bdf4b9897ab54df69b69,
+    type: 3}
+  m_PrefabInstance: {fileID: 17493416}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1798049557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1798049551}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a164d432cee14c49b1036c7cf66fe73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerCamera: {fileID: 601531190}
+  _healthEnemyTopPrint: {fileID: 617202384}
+  _damage: 15
+  _layerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  _weaponsList:
+  - {fileID: 1427912640}
+  - {fileID: 2026674842}
 --- !u!1 &1828664930
 GameObject:
   m_ObjectHideFlags: 0
@@ -33899,6 +33938,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2026674842 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8238960141054570794, guid: a01c7516e659bdf4b9897ab54df69b69,
+    type: 3}
+  m_PrefabInstance: {fileID: 17493416}
+  m_PrefabAsset: {fileID: 0}
 --- !u!43 &2083192998
 Mesh:
   m_ObjectHideFlags: 0
