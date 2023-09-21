@@ -1,10 +1,10 @@
 using UnityEngine;
 using TMPro;
-public class RaycastShoot : MonoBehaviour
+public class RaycastShoot_Pistol : MonoBehaviour
 {
     [SerializeField] private Camera _playerCamera;
     [SerializeField] private TMP_Text _healthEnemyTopPrint;
-    [SerializeField] private int _damage = 20;
+    [SerializeField] private int _damage = 15;
     private int enemyHealth;
 
     private void Update()
@@ -28,11 +28,5 @@ public class RaycastShoot : MonoBehaviour
             }
         }
     }
-#if UNITY_EDITOR
-    private void OnDrawGizmosSelected()
-    {
-        var ray = new Ray(transform.position, transform.forward);
-        Debug.DrawRay(ray.origin, ray.direction * 15f, Gizmos.color = Color.green);
-    }
-#endif 
+ 
 }

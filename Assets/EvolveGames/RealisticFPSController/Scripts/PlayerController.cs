@@ -183,6 +183,13 @@ namespace EvolveGames
                 Items.Hide(false);
             }
         }
+#if UNITY_EDITOR
+        private void OnDrawGizmosSelected()
+        {
+            var ray = new Ray(transform.position, transform.forward);
+            Debug.DrawRay(ray.origin, ray.direction * 15f, Gizmos.color = Color.green);
+        }
+#endif
 
     }
 }
