@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Timeline;
+using UnityEngine.UI;
 
 public class ShootManager : MonoBehaviour
 {
@@ -10,6 +12,8 @@ public class ShootManager : MonoBehaviour
     [SerializeField] private int _damage = 15;
     [SerializeField] private LayerMask _layerMask;
     [SerializeField] private List<GameObject> _weaponsList;
+    [SerializeField] private Image _hitMarker;
+
     private bool _isShoot = true;
     private float _timeDelay;
     private int _enemyHealth;
@@ -20,9 +24,27 @@ public class ShootManager : MonoBehaviour
         {
             GetTimeDelayAndDamage();
             print(_timeDelay);
-            StartCoroutine(ShootByRayCast());
+            StartCoroutine(ShootByRayCast());       
         }
 
+    }
+    private void GetTimeDelayAndDamage()
+    {
+        string gunName = null;
+        foreach (var weapon in _weaponsList)
+        {
+            if (weapon.activeSelf) gunName = weapon.name;
+        }
+
+        if (gunName == "FullPistol") SetDamageAndTImeDelay(0.3f, 20);
+        if (gunName == "AssaultRifle") SetDamageAndTImeDelay(0.2f, 30);
+
+    }
+
+    private void SetDamageAndTImeDelay(float timeDelay, int damage)
+    {
+        _timeDelay = timeDelay;
+        _damage = damage;
     }
 
     private IEnumerator ShootByRayCast()
@@ -34,6 +56,7 @@ public class ShootManager : MonoBehaviour
         {
             if (hitInfo.collider.tag == "Enemy")
             {
+                StartCoroutine(HitMarkerInfo());
                 hitInfo.collider.gameObject.GetComponent<EnemyAI>().HealthEnemy -= _damage;
                 _enemyHealth = hitInfo.collider.gameObject.GetComponent<EnemyAI>().HealthEnemy;
                 _healthEnemyTopPrint.gameObject.SetActive(true);
@@ -46,23 +69,24 @@ public class ShootManager : MonoBehaviour
         _isShoot = true;
     }
 
-    private void GetTimeDelayAndDamage()
+    private IEnumerator HitMarkerInfo()
     {
-        string gunName = null;
-        foreach (var weapon in _weaponsList)
+        float valueOfAlphaChannel = 255f;
+        _hitMarker.color = new Color(_hitMarker.color.r, _hitMarker.color.g, _hitMarker.color.b, 255f);
+        var timeForWait = 6f;
+        Color hitMarkerFade = new Color(_hitMarker.color.r, _hitMarker.color.g, _hitMarker.color.b, valueOfAlphaChannel);
+        while (_hitMarker.color.a >= 0f)
         {
-            if (weapon.activeSelf) gunName = weapon.name;
+            valueOfAlphaChannel -= 10f;
+            hitMarkerFade = new Color(_hitMarker.color.r, _hitMarker.color.g, _hitMarker.color.b, valueOfAlphaChannel);
+            _hitMarker.color = Color.Lerp(_hitMarker.color, hitMarkerFade, timeForWait * Time.deltaTime);
+            print(_hitMarker.color.a);
+            yield return null;
         }
-
-        if (gunName == "FullPistol") SetDamageAndTImeDelay(0.3f, 20);
-        if (gunName == "AssaultRifle") SetDamageAndTImeDelay(0.1f, 30);
-       
+        
     }
+    
 
-    private void SetDamageAndTImeDelay(float timeDelay, int damage)
-    {
-        _timeDelay = timeDelay;
-        _damage = damage;
-    }
+    
 
 }

@@ -6,7 +6,7 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] private NavMeshAgent _enemy;
     private GameObject _player;
     public int HealthEnemy = 100;
-    private void Start() => _player = FindObjectOfType<PlayerController>().gameObject;
+    private void Awake() => _player = FindObjectOfType<PlayerController>().gameObject;
     private void Update()
     {
         if (HealthEnemy <= 0)
