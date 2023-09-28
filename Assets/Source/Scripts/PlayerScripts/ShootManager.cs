@@ -59,8 +59,8 @@ public class ShootManager : MonoBehaviour
                 StartCoroutine(HitMarkerInfo());
                 hitInfo.collider.gameObject.GetComponent<EnemyAI>().HealthEnemy -= _damage;
                 _enemyHealth = hitInfo.collider.gameObject.GetComponent<EnemyAI>().HealthEnemy;
-                _healthEnemyTopPrint.gameObject.SetActive(true);
-                _healthEnemyTopPrint.text = $"Enemy health: {_enemyHealth}";
+                //_healthEnemyTopPrint.gameObject.SetActive(true);
+                //_healthEnemyTopPrint.text = $"Enemy health: {_enemyHealth}";
                 if (_enemyHealth == 0) _healthEnemyTopPrint.gameObject.SetActive(false);
                 print($"Health enemy: {_enemyHealth}");
             }
@@ -74,7 +74,7 @@ public class ShootManager : MonoBehaviour
         float valueOfAlphaChannel = 255f;
         _hitMarker.color = new Color(_hitMarker.color.r, _hitMarker.color.g, _hitMarker.color.b, 255f);
         var timeForWait = 6f;
-        Color hitMarkerFade = new Color(_hitMarker.color.r, _hitMarker.color.g, _hitMarker.color.b, valueOfAlphaChannel);
+        Color hitMarkerFade;
         while (_hitMarker.color.a >= 0f)
         {
             valueOfAlphaChannel -= 10f;

@@ -4,6 +4,8 @@ using UnityEngine;
 public class AR_Sound : MonoBehaviour
 {
     [SerializeField] private AudioSource _shootAR;
+    [SerializeField] private float _timeToShootEnabled;
+    [SerializeField] private float _timeDelay;
     private bool _isPlaying = false;
 
     private void Update()
@@ -13,9 +15,11 @@ public class AR_Sound : MonoBehaviour
 
     private void OnEnable() => StartCoroutine(ShootEnabled());
 
+    private void OnDisable() => _isPlaying = false;
+
     private IEnumerator ShootSoundDelay()
     {
-        var timeToWait = new WaitForSeconds(0.2f);
+        var timeToWait = new WaitForSeconds(_timeDelay);
         _isPlaying = false;
         _shootAR.Play();
         yield return timeToWait;
@@ -24,7 +28,7 @@ public class AR_Sound : MonoBehaviour
 
     private IEnumerator ShootEnabled()
     {
-        yield return new WaitForSeconds(0.7f);
+        yield return new WaitForSeconds(_timeToShootEnabled);
         _isPlaying = true;
     }
 }
